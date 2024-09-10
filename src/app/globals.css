@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background: #000;
+  width: 100%;
+  min-height: 100vh;
+
+
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
