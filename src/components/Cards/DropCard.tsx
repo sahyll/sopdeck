@@ -20,6 +20,7 @@ const DropCard = ({ setTexts }: DropCardProps) => {
       const txt = await convertor(url);
       if (txt) {
         setTexts((prevTexts) => [...prevTexts, txt]);
+        console.log("Second part of the code, wfrom convert function in DropCard.tsx: ", +txt)
       }
       setProcessing(false);
     }

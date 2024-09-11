@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 
 interface TextCardProps {
-  t: Array<string | number>; // Expect a 1D array
+  t: Array<Array<string | number>>; // Expect a 21D array
   i: number;
 }
 
@@ -10,8 +10,18 @@ const TextCard: React.FC<TextCardProps> = ({ t, i }) => {
     navigator.clipboard.writeText(txt);
   };
 
-  // Join array elements into a single string with line breaks
-  const textContent = t.map(item => item.toString()).join('\n');
+  const [textContent, setTextContent] = useState<string>('');
+
+  useEffect(() => {
+    const transformedTextContent = t.length > 0 
+      ? t.map(item => item.toString()).join('\n') 
+      : 'No data available';
+
+    
+    setTextContent(transformedTextContent);
+  }, [t]);
+
+
 
   return (
     <div className=''>
